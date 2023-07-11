@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50">
+    <h1 class="text-center font-bold text-3xl py-5 uppercase">Sala de mensajes</h1>
+    <hr>
+
+    <p class="text-center my-5 font-bold">SERVER STATUS:
+        <span style="display: none;" id="lblOnline" class="text-green-600 rounded-full bg-green-100 px-3 font-semibold">Online</span>
+        <span id="lblOffline" class="text-red-600 rounded-full bg-red-100 px-3 font-semibold">Offline</span>
+    </p>
+
+    <form id="form" class="max-w-[500px] mx-auto px-4 mt-10">
+        <div>
+            <input
+                type="text"
+                id="input-text"
+                class="border focus:shadow-lg py-2 px-4 rounded-md w-full"
+            >
+        </div>
+        <input
+            type="submit"
+            class="block w-full sm:w-auto ml-auto px-8 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-md mt-3 cursor-pointer"
+        >
+    </form>
+
+    <script src="./socket.io/socket.io.js"></script>
+    <script src="./js/socket-chat.js"></script>
+</body>
+</html>
