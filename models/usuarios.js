@@ -6,8 +6,8 @@ class Usuarios {
         this.personas = []
     }
 
-    conectarPersona( id, nombre ) {
-        const persona = { id, nombre }
+    conectarPersona( id, nombre, sala ) {
+        const persona = { id, nombre, sala }
         this.personas.push( persona )
 
         return this.personas
@@ -23,7 +23,8 @@ class Usuarios {
     }
 
     obtenerPersonarPorSala(sala) {
-        // TODO:
+        return this.personas.filter( persona => persona.sala === sala )
+
     }
 
     desconectarPersona(id) {

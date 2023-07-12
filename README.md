@@ -1,4 +1,3 @@
-# Socket.io
+# Socket Chat
 
-- __Configuración e Instalaciones__
-- __Comunicación entre cliente - servidor__
+__Aplicacioón de chat desarrollada con Node.js y Socket.io__

@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50">
-    <h1 class="text-center font-bold text-3xl py-5 uppercase">Sala de mensajes</h1>
+    <h1 class="text-center font-bold text-3xl py-5 uppercase"></h1>
     <hr>
 
     <p class="text-center my-5 font-bold">SERVER STATUS:
@@ -17,11 +17,20 @@
     </p>
 
     <form id="form" class="max-w-[500px] mx-auto px-4 mt-10">
-        <div>
+        <div class="mb-4">
             <input
                 type="text"
                 id="input-text"
                 class="border focus:shadow-lg py-2 px-4 rounded-md w-full"
+                placeholder="Mensaje"
+            >
+        </div>
+        <div>
+            <input
+                type="text"
+                id="input-para"
+                class="border focus:shadow-lg py-2 px-4 rounded-md w-full"
+                placeholder="Para"
             >
         </div>
         <input
