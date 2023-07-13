@@ -3,6 +3,7 @@ const { crearMensaje } = require('../helpers/utilidades')
 
 const usuarios = new Usuarios()
 
+
 const socketController = ( socket ) => {
     console.log('Cliente conectado!', socket.id);
 
@@ -20,20 +21,24 @@ const socketController = ( socket ) => {
         const personas = usuarios.conectarPersona( socket.id, usuario.nombre, usuario.sala )
 
         socket.broadcast.to(usuario.sala).emit('lista-personas', usuarios.obtenerPersonarPorSala(usuario.sala))
+        socket.broadcast.to(usuario.sala).emit('crear-mensaje', crearMensaje('Administrador', `${usuario.nombre} se conectó`))
 
         callback({
-            err: false,
             personas: usuarios.obtenerPersonarPorSala(usuario.sala)
         })
     })
 
-    socket.on('crear-mensaje', (payload)=>{
+
+    socket.on('crear-mensaje', (payload, callback)=>{
 
         const persona = usuarios.obtenerPersona(socket.id)
 
         let mensaje = crearMensaje( persona.nombre, payload.mensaje )
         socket.broadcast.to(persona.sala).emit('crear-mensaje', mensaje)
+
+        callback(mensaje)
     })
+
 
     socket.on('disconnect', ()=>{
 
